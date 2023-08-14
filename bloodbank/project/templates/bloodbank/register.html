@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>Blood Buddies - Registration</title>
+		<meta name="description" content="Elmer is a Dashboard & Admin Site Responsive Template by hencework." />
+		<meta name="keywords" content="admin, admin dashboard, admin template, cms, crm, Elmer Admin, Elmeradmin, premium admin templates, responsive admin, sass, panel, software, ui, visualization, web app, application" />
+		<meta name="author" content="hencework"/>
+
+        <!-- Style.css imports -->
+    <link href="../../static/adminresources/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+	<link href="../../static/adminresources/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../../static/adminresources/css/themify-icons.css" rel="stylesheet" type="text/css">
+    <link href="../../static/adminresources/css/animate.css" rel="stylesheet" type="text/css">
+    <link href="../../static/adminresources/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+    <link href="../../static/adminresources/css/linea-icon.css" rel="stylesheet" type="text/css">
+    <link href="../../static/adminresources/css/pe-icon-7-stroke.css" rel="stylesheet" type="text/css">
+    <link href="../../static/adminresources/css/pe-icon-7-styles.css" rel="stylesheet" type="text/css">\
+    <link href="../../static/adminresources/css/material-design-iconic-font.min.css" rel="stylesheet" type="text/css">
+    <link href="../../static/adminresources/css/filter.css" rel="stylesheet" type="text/css">
+    <link href="../../static/adminresources/css/switchery.min.css" rel="stylesheet" type="text/css">
+    <link href="../../static/adminresources/css/owl.carousel.min.css" rel="stylesheet" type="text/css">
+    <link href="../../static/adminresources/css/owl.theme.default.min.css" rel="stylesheet" type="text/css">
+    <link href="../../static/adminresources/css/lightgallery.css" rel="stylesheet" type="text/css">
+    <link href="../../static/adminresources/css/awesome-bootstrap-checkbox.css" rel="stylesheet" type="text/css">
+
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="../../static/adminresources/images/favicon.ico">
+		<link rel="icon" href="../../static/adminresources/images/favicon.ico" type="image/x-icon">
+
+		<!-- vector map CSS -->
+		<link href="../../static/adminresources/css/jasny-bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
+
+
+		<!-- Custom CSS -->
+		<link href="../../static/adminresources/css/style.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<!--Preloader-->
+		<div class="preloader-it">
+			<div class="la-anim-1"></div>
+		</div>
+		<!--/Preloader-->
+
+		<div class="wrapper  pa-0">
+
+
+            {% include 'bloodbank/header.html' %}
+
+
+			<!-- Main Content -->
+			<div class="page-wrapper pa-0 ma-0 auth-page">
+				<div class="container-fluid">
+					<!-- Row -->
+					<div class="table-struct full-width full-height">
+						<div class="table-cell vertical-align-middle auth-form-wrap">
+							<div class="auth-form  ml-auto mr-auto no-float">
+								<div class="row">
+									<div class="col-sm-12 col-xs-12">
+										<div class="mb-30">
+											<h3 class="text-center txt-dark mb-10">Sign Up</h3>
+											<h6 class="text-center nonecase-font txt-grey">Enter your details below</h6>
+										</div>
+										<div class="form-wrap">
+											<form action="/bloodbankInsertBloodbank" method="post">
+												<!--<div class="form-group">
+													<label class="control-label mb-10" for="exampleInputName_1">Username</label>
+													<input type="email" class="form-control" required="" id="exampleInputName_1" placeholder="Username">
+												</div>-->
+
+                                                <div class="form-group">
+													<label class="control-label mb-10" for="exampleInputName_1">Bloodbank Name</label>
+													<input type="text" class="form-control" required="" id="exampleInputName_1" name="bloodbankName">
+												</div>
+
+                                                <div class="form-group">
+													<label class="control-label mb-10">Address</label>
+                                                    <textarea class="form-control" id="addr" name="bloodbankAddress"></textarea>
+												</div>
+
+                                                <div class="form-group">
+                                                    <label class="control-label mb-10">Area</label>
+                                                    <select class="form-control" name="bloodbank_AreaId">
+
+                                                        {% for i in areaDict %}
+
+                                                            <option value="{{ i.areaId }}">{{ i.areaName }}</option>
+
+                                                        {% endfor %}
+                                                    </select>
+                                                </div>
+
+                                                <div class="form-group">
+													<label class="pull-left control-label mb-10">Pincode</label>
+													<input type="number" class="form-control" id="pincode" name="bloodbankPincode">
+												</div>
+
+
+                                                <div class="form-group">
+													<label class="control-label mb-10">Bloodbank Description</label>
+                                                    <textarea class="form-control" id="addr" name="bloodbankDescription"></textarea>
+												</div>
+
+                                                <div class="form-group">
+													<label class="control-label mb-10">Contact Number</label>
+													<input type="number" class="form-control" id="contact" name="bloodbankContactNumber">
+												</div>
+
+                                                <div class="form-group">
+													<label class="control-label mb-10">Email ID</label>
+													<input type="email" class="form-control" id="emailId" name="loginEmail">
+												</div>
+
+                                                <!--<div class="form-group">
+													<label class="pull-left control-label mb-10">Password</label>
+													<input type="password" class="form-control" id="pwd" name="bloodbankPassword">
+												</div>
+
+                                                <div class="form-group">
+													<label class="pull-left control-label mb-10">Confirm Password</label>
+													<input type="password" class="form-control" id="cpwd" name="bloodbankConfirmPassword">
+												</div>-->
+
+                                                <div class="form-group">
+													<label class="pull-left control-label mb-10">Registration Date</label>
+													<input type="date" class="form-control" required="" id="regDate" name="bloodbankRegistrationDate">
+												</div>
+
+                                                <div class="form-group text-center">
+													<button type="submit" class="btn btn-primary btn-rounded">Sign Up</button>
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /Row -->
+				</div>
+
+			</div>
+			<!-- /Main Content -->
+
+		</div>
+		<!-- /#wrapper -->
+
+		<!-- JavaScript -->
+
+		<!-- jQuery -->
+		<script src="../../static/adminresources/js/jquery.min.js"></script>
+
+		<!-- Bootstrap Core JavaScript -->
+		<script src="../../static/adminresources/js/bootstrap.min.js"></script>
+		<script src="../../static/adminresources/js/jasny-bootstrap.min.js"></script>
+
+		<!-- Slimscroll JavaScript -->
+		<script src="../../static/adminresources/js/jquery.slimscroll.js"></script>
+
+		<!-- Init JavaScript -->
+		<script src="../../static/adminresources/js/init.js"></script>
+	</body>
+</html>

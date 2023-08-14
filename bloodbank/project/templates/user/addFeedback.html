@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en"> <!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <title>Add Feedback - Blood Buddies</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Reddrop Buddies - Blood Donation Campaign & Multi-Concept Activism Template">
+    <meta name="author" content="xenioushk">
+    <link rel="shortcut icon" href="../../static/userresources/images/favicon.png"/>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    <style type="text/css">
+
+        .rating {
+            float: left;
+        }
+
+        /* :not(:checked) is a filter, so that browsers that don’t support :checked don’t
+           follow these rules. Every browser that supports :checked also supports :not(), so
+           it doesn’t make the test unnecessarily selective */
+        .rating:not(:checked) > input {
+            position: absolute;
+            top: -9999px;
+            clip: rect(0, 0, 0, 0);
+        }
+
+        .rating:not(:checked) > label {
+            float: right;
+            width: 1em;
+            padding: 0 .1em;
+            overflow: hidden;
+            white-space: nowrap;
+            cursor: pointer;
+            font-size: 200%;
+            line-height: 1.2;
+            color: #ddd;
+            text-shadow: 1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0, 0, 0, .5);
+        }
+
+        .rating:not(:checked) > label:before {
+            content: ' ';
+        }
+
+        .rating > input:checked ~ label {
+            color: #f70;
+            text-shadow: 1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0, 0, 0, .5);
+        }
+
+        .rating:not(:checked) > label:hover,
+        .rating:not(:checked) > label:hover ~ label {
+            color: gold;
+            text-shadow: 1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0, 0, 0, .5);
+        }
+
+        .rating > input:checked + label:hover,
+        .rating > input:checked + label:hover ~ label,
+        .rating > input:checked ~ label:hover,
+        .rating > input:checked ~ label:hover ~ label,
+        .rating > label:hover ~ input:checked ~ label {
+            color: #ea0;
+            text-shadow: 1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0, 0, 0, .5);
+        }
+
+        .rating > label:active {
+            position: relative;
+            top: 2px;
+            left: 2px;
+        }
+
+    </style>
+
+    <link rel="stylesheet" href="star.css">
+
+    <!-- The styles -->
+    <link rel="stylesheet" href="../../static/userresources/css/bootstrap.min.css"/>
+    <link href="../../static/userresources/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../../static/userresources/css/animate.css" rel="stylesheet" type="text/css">
+    <link href="../../static/userresources/css/owl.carousel.css" rel="stylesheet" type="text/css">
+    <link href="../../static/userresources/css/venobox.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../../static/userresources/css/styles.css"/>
+
+<body>
+
+<div id="preloader">
+    <span class="margin-bottom"><img src="images/loader.gif" alt=""/></span>
+</div>
+
+<!--  HEADER -->
+
+{% include 'user/loginheader.html' %}
+
+<!-- end main-header  -->
+
+
+<section class="page-header" data-stellar-background-ratio="1.2">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-sm-12 text-center">
+
+
+                <h3>
+                    Add Feedback
+                </h3>
+
+                <p class="page-breadcrumb">
+                    User Dashboard / Feedback / Add Feedback
+                </p>
+
+
+            </div>
+
+        </div> <!-- end .row  -->
+
+    </div> <!-- end .container  -->
+
+</section> <!-- end .page-header  -->
+
+<section class="section-content-block">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-8 col-sm-12">
+
+
+                <div class="comments-area" id="comments">
+
+                    <div id="respond">
+
+                        <div class="topic-bold-header clearfix">
+                            <h4>Add feedback</h4>
+                        </div> <!-- end .topic-bold-header  -->
+
+                        <form role="form" action="/userAddFeedback" method="post" id="comment-form">
+
+{#                            <div class="form-group">#}
+{##}
+{#                                <input type="text" class="form-control" id="name" placeholder="Name">#}
+{#                            </div>#}
+{##}
+{#                            <div class="form-group">#}
+{##}
+{#                                <input type="email" class="form-control" id="email" placeholder="Email">#}
+{#                            </div>#}
+                            <div class="form-group">
+                                <select class="form-control" name="bloodbankId">
+                                    {% for i in bloodbankDict %}
+                                        <option value="{{ i.bloodbankId }}">{{ i.bloodbankName }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                             <div class="form-group rating">
+
+                                    <input type="radio" id="star5" name="feedbackRating" value="5"/><label for="star5"
+                                                                                                   title="Rocks!"><span
+                                        class="fa fa-star checked"></span></label>
+                                    <input type="radio" id="star4" name="feedbackRating" value="4"/><label for="star4"
+                                                                                                   title="Pretty good"><span
+                                        class="fa fa-star checked"></span></label>
+                                    <input type="radio" id="star3" name="feedbackRating" value="3"/><label for="star3"
+                                                                                                   title="Meh"><span
+                                        class="fa fa-star checked"></span></label>
+                                    <input type="radio" id="star2" name="feedbackRating" value="2"/><label for="star2"
+                                                                                                   title="Kinda bad"><span
+                                        class="fa fa-star checked"></span></label>
+                                    <input type="radio" id="star1" name="feedbackRating" value="1"/><label for="star1"
+                                                                                                   title="Sucks big time"><span
+                                        class="fa fa-star checked"></span></label>
+                            </div>
+
+                            <div class="form-group">
+
+                                <textarea class="form-control" rows="5"  id="comment" name="feedbackDescription"
+                                          placeholder="Write Your Comment"></textarea>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-custom">Submit Feedback</button>
+                            </div>
+
+
+                        </form>
+
+
+                    </div> <!-- end respond-->
+
+                </div> <!-- end comments-area-->
+
+            </div> <!--  end .single-post-container -->
+
+
+        </div> <!--  end row  -->
+
+    </div> <!--  end container -->
+
+</section> <!-- end .section-content-block  -->
+
+<!-- START FOOTER  -->
+
+{% include 'user/footer.html' %}
+
+<!-- END FOOTER  -->
+
+<!-- Back To Top Button  -->
+
+<a id="backTop">Back To Top</a>
+
+<script src="../../static/userresources/js/jquery.min.js"></script>
+<script src="../../static/userresources/js/bootstrap.min.js"></script>
+<script src="../../static/userresources/js/wow.min.js"></script>
+<script src="../../static/userresources/js/jquery.backTop.min.js "></script>
+<script src="../../static/userresources/js/waypoints.min.js"></script>
+<script src="../../static/userresources/js/waypoints-sticky.min.js"></script>
+<script src="../../static/userresources/js/owl.carousel.min.js"></script>
+<script src="../../static/userresources/js/jquery.stellar.min.js"></script>
+<script src="../../static/userresources/js/jquery.counterup.min.js"></script>
+<script src="../../static/userresources/js/venobox.min.js"></script>
+<script src="../../static/userresources/js/custom-scripts.js"></script>
+</body>
+
+</html>

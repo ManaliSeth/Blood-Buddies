@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+
+    <head>
+        <meta charset="utf-8">
+        <title>View Feedback - Reddrop Buddies - Blood Donation Campaign & Multi-Concept Activism Template</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="description" content="Reddrop Buddies - Blood Donation Campaign & Multi-Concept Activism Template">
+        <meta name="author" content="xenioushk">
+        <link rel="shortcut icon" href="../../static/userresources/images/favicon.png" />
+
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <!-- The styles -->
+        <link rel="stylesheet" href="../../static/userresources/css/bootstrap.min.css" />
+        <link href="../../static/userresources/css/font-awesome.min.css" rel="stylesheet" type="text/css" >
+        <link href="../../static/userresources/css/animate.css" rel="stylesheet" type="text/css" >
+        <link href="../../static/userresources/css/owl.carousel.css" rel="stylesheet" type="text/css" >
+        <link href="../../static/userresources/css/venobox.css" rel="stylesheet" type="text/css" >
+        <link rel="stylesheet" href="../../static/userresources/css/styles.css" />
+
+    <body>
+
+        <div id="preloader">
+            <span class="margin-bottom"><img src="images/loader.gif" alt="" /></span>
+        </div>
+
+       <!--  HEADER -->
+
+        {% include 'user/loginHeader.html' %}
+         <!-- end main-header  -->
+
+        <section class="page-header" data-stellar-background-ratio="1.2">
+
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-sm-12 text-center">
+
+
+                        <h3>
+                            View Feedback
+                        </h3>
+
+                        <p class="page-breadcrumb">
+                            User Dashboard / Feedback / View Feedback
+                        </p>
+
+
+                    </div>
+
+                </div> <!-- end .row  -->
+
+            </div> <!-- end .container  -->
+
+        </section> <!-- end .page-header  -->
+
+        <section class="section-content-block">
+
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-md-8 col-sm-12">
+
+                        <div class="comments-area" id="comments">
+                            <h5>Feedbacks</h5>
+                            <ol class="commentslist">
+
+
+                                {% for i in feedbackDict %}
+
+                                 <li>
+                                    <article class="clearfix">
+                                        <header>
+                                                <h5><a href="">{{ i['loginToEmail'] }}</a></h5>
+                                        <p><span>on {{ i['feedbackDate'] }} at {{ i['feedbackTime'] }} - </span></p>
+                                        </header>
+
+                                        <div class="comment_text">
+                                        Message:{{ i['feedbackDescription'] }}
+                                        </div>
+
+                                        Rating:{{ i['feedbackRating']}}
+                                        <hr>
+
+                                    </article>
+                                </li>
+
+
+                                {% else %}
+                                    No Feedbacks!!!
+
+                                {% endfor %}
+                            </ol>
+
+
+                        </div> <!-- end comments-area-->
+
+                    </div> <!--  end .single-post-container -->
+
+                </div> <!--  end row  -->
+
+            </div> <!--  end container -->
+
+        </section> <!-- end .section-content-block  -->
+
+        <!-- START FOOTER  -->
+
+        {% include 'user/footer.html' %}
+
+        <!-- END FOOTER  -->
+
+        <!-- Back To Top Button  -->
+
+        <a id="backTop">Back To Top</a>
+
+        <script src="../../static/userresources/js/jquery.min.js"></script>
+        <script src="../../static/userresources/js/bootstrap.min.js"></script>
+        <script src="../../static/userresources/js/wow.min.js"></script>
+        <script src="../../static/userresources/js/jquery.backTop.min.js "></script>
+        <script src="../../static/userresources/js/waypoints.min.js"></script>
+        <script src="../../static/userresources/js/waypoints-sticky.min.js"></script>
+        <script src="../../static/userresources/js/owl.carousel.min.js"></script>
+        <script src="../../static/userresources/js/jquery.stellar.min.js"></script>
+        <script src="../../static/userresources/js/jquery.counterup.min.js"></script>
+        <script src="../../static/userresources/js/venobox.min.js"></script>
+        <script src="../../static/userresources/js/custom-scripts.js"></script>
+    </body>
+
+</html>
